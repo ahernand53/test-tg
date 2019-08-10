@@ -21,9 +21,9 @@ Route::middleware('auth:api')->group(function () {
 });
 
 Route::resource('categories', 'Category\CategoryController')->except(['create', 'edit']);
-Route::resource('categories.articles', 'Category\CategoryArticleController')->except(['create', 'edit']);
+Route::resource('categories.articles', 'Category\CategoryArticleController')->except(['create', 'edit', 'show']);
 
-
+Route::resource('articles', 'Article\ArticleController')->only(['index', 'show']);
 
 
 
