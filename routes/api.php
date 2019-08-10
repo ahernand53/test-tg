@@ -20,7 +20,8 @@ Route::middleware('auth:api')->group(function () {
 
 });
 
-Route::resource('/categories', 'CategoryController')->except(['create', 'edit']);
+Route::resource('categories', 'Category\CategoryController')->except(['create', 'edit']);
+Route::resource('categories.articles', 'Category\CategoryArticleController')->except(['create', 'edit']);
 
 
 

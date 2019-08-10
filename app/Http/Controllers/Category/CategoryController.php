@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Category;
 
 use App\Category;
+use App\Http\Controllers\ApiController;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
 
@@ -18,10 +20,6 @@ class CategoryController extends ApiController
     public function index()
     {
         $categories = Category::all();
-
-        if ($categories->count() === 0) {
-
-        }
 
         return $this->showAll($categories);
     }
@@ -40,7 +38,12 @@ class CategoryController extends ApiController
 
         $this->validate($request, $rules);
 
-        $category = Category::create($request);
+
+        $category = new Category([
+            'name' => $request->get('name')
+        ]);
+
+        $category->save();
 
         return $this->showOne($category, 201);
     }
@@ -48,7 +51,7 @@ class CategoryController extends ApiController
     /**
      * Display the specified resource.
      *
-     * @param  \App\Category  $category
+     * @param Category $category
      * @return JsonResponse
      */
     public function show(Category $category)
@@ -60,9 +63,9 @@ class CategoryController extends ApiController
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Category $category
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Category $category
+     * @return Response
      * @throws ValidationException
      */
     public function update(Request $request, Category $category)
@@ -87,8 +90,8 @@ class CategoryController extends ApiController
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Category $category
-     * @return \Illuminate\Http\Response
+     * @param Category $category
+     * @return Response
      * @throws \Exception
      */
     public function destroy(Category $category)
