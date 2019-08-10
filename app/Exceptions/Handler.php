@@ -67,13 +67,13 @@ class Handler extends ExceptionHandler
             return $this->errorResponse("no hay resultados del modelo: $model", 404);
         }
 
-        if ($exception instanceof AuthenticationException) {
-            return $this->unauthenticated($request, $exception);
-        }
-
-        if ($exception instanceof AuthorizationException) {
-            return $this->errorResponse('no autorizado', 401);
-        }
+//        if ($exception instanceof AuthenticationException) {
+//            return $this->unauthenticated($request, $exception);
+//        }
+//
+//        if ($exception instanceof AuthorizationException) {
+//            return $this->errorResponse('no autorizado', 401);
+//        }
 
         if ($exception instanceof NotFoundHttpException) {
             return $this->errorResponse('url no encontrada', 404);
@@ -102,11 +102,11 @@ class Handler extends ExceptionHandler
         return $this->errorResponse('no autenticado', 403);
     }
 
-    protected function convertValidationExceptionToResponse(ValidationException $e, $request)
-    {
-        $errors = $e->validator->errors()->getMessages();
-
-        return $this->errorResponse($errors, 422);
-
-    }
+//    protected function convertValidationExceptionToResponse(ValidationException $e, $request)
+//    {
+//        $errors = $e->validator->errors()->getMessages();
+//
+//        return $this->errorResponse($errors, 422);
+//
+//    }
 }
