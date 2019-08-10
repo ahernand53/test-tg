@@ -25,5 +25,7 @@ Route::resource('categories.articles', 'Category\CategoryArticleController')->ex
 
 Route::resource('articles', 'Article\ArticleController')->only(['index', 'show']);
 
+Route::get('reports/generate-pdf', 'Article\GeneratePDF@pdf')->name('articles.generatePDF');
+
 
 
