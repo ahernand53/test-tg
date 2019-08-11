@@ -69,6 +69,8 @@ class CategoryArticleController extends ApiController
 
         $this->validate($request, $rules);
 
+        $category->articles()->save($article);
+
         if ($request->has('name')) {
             $article->name = $request->get('name');
             $category->articles()->save($article);
