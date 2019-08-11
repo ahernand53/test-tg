@@ -58,33 +58,17 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $exception)
     {
 
-        if ($exception instanceof ValidationException) {
-            return $this->convertValidationExceptionToResponse($exception, $request);
-        }
-
         if ($exception instanceof ModelNotFoundException) {
             $model = strtolower(class_basename($exception->getModel()));
             return $this->errorResponse("no hay resultados del modelo: $model", 404);
         }
 
-//        if ($exception instanceof AuthenticationException) {
-//            return $this->unauthenticated($request, $exception);
-//        }
-//
-//        if ($exception instanceof AuthorizationException) {
-//            return $this->errorResponse('no autorizado', 401);
-//        }
-
         if ($exception instanceof NotFoundHttpException) {
-            return $this->errorResponse('url no encontrada', 404);
+            return redirect('/inicio');
         }
 
         if ($exception instanceof MethodNotAllowedHttpException) {
             return $this->errorResponse('metodo no encontrado', 405);
-        }
-
-        if ($exception instanceof HttpException) {
-            return $this->errorResponse($exception->getMessage(), $exception->getStatusCode());
         }
 
         if ($exception instanceof QueryException) {
@@ -95,11 +79,6 @@ class Handler extends ExceptionHandler
         }
 
         return parent::render($request, $exception);
-    }
-
-    protected function unauthenticated($request, AuthenticationException $exception)
-    {
-        return $this->errorResponse('no autenticado', 403);
     }
 
     protected function convertValidationExceptionToResponse(ValidationException $e, $request)

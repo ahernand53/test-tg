@@ -49,6 +49,18 @@
                                 </li>
                             @endif
                         @else
+                            <li class="nav-item">
+                                <router-link class="nav-link" :to="{ name: 'home'}">Articulos</router-link>
+                            </li>
+
+                            <li class="nav-item">
+                                <router-link class="nav-link" :to="{ name: 'category.index'}">Categorias</router-link>
+                            </li>
+
+                            <li class="nav-item">
+                                <router-link class="nav-link" :to="{ name: 'articles.report'}">Reporte</router-link>
+                            </li>
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
