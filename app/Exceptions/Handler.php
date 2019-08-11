@@ -102,11 +102,11 @@ class Handler extends ExceptionHandler
         return $this->errorResponse('no autenticado', 403);
     }
 
-//    protected function convertValidationExceptionToResponse(ValidationException $e, $request)
-//    {
-//        $errors = $e->validator->errors()->getMessages();
-//
-//        return $this->errorResponse($errors, 422);
-//
-//    }
+    protected function convertValidationExceptionToResponse(ValidationException $e, $request)
+    {
+        $errors = $e->validator->errors()->getMessages();
+
+        return $this->errorResponse($errors, 422);
+
+    }
 }
