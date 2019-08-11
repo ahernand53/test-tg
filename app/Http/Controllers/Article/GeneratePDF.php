@@ -4,9 +4,10 @@ namespace App\Http\Controllers\Article;
 
 use App\Article;
 use App\Http\Controllers\ApiController;
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
-use Barryvdh\DomPDF\PDF;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\View;
 
 class GeneratePDF extends ApiController
 {
@@ -21,12 +22,14 @@ class GeneratePDF extends ApiController
 
         $start_date = $request->get('start_date');
         $end_date = $request->get('end_date');
-        $articles = DB::table('articles')->whereDate('created_at', '>=', $start_date)->whereDate('created_at', '<=', $end_date)->get();
+        $articles = Article::with('category')
+            ->whereDate('created_at', '>=', $start_date)
+            ->whereDate('created_at', '<=', $end_date)
+            ->get();
 
-        // TODO: Generar vista para el pdf
-        $pdf = PDF::loadView('pdf.report-articles', compact('articles'));
+        $pdf = PDF::loadView('reports', ['articles' => $articles]);
 
-        return response()->json(['data' => $articles]);
+        return $pdf->download('reportes.pdf');
 
     }
 

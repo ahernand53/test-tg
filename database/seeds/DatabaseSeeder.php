@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
 
         $USERS_QUANTITY         = 10;
         $CATEGORIES_QUANTITY    = 10;
-        $ARTICLES_PER_CATEGORY  = 10;
+        $ARTICLES_PER_CATEGORY  = 2;
 
         factory(User::class, $USERS_QUANTITY)->create();
         factory(Category::class, $CATEGORIES_QUANTITY)->create()

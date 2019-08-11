@@ -27,6 +27,7 @@ import ArticleCreateComponent from "./components/articles/CreateComponent.vue";
 
 import CategoryListComponent from './components/categories/ListComponent.vue'
 import CategoryCreateComponent from './components/categories/CreateComponent.vue'
+import ReportComponent from './components/articles/ReportComponent.vue'
 
 import HomeComponent from "./components/HomeComponent";
 
@@ -36,26 +37,27 @@ const router = new VueRouter({
     routes: [
         {
             name: 'home',
-            path: '/home',
+            path: '/inicio',
             component: ArticleListComponent
         },
         {
             name: 'article.create',
-            path: '/home/nuevo-articulo',
+            path: '/inicio/nuevo-articulo',
             component: ArticleCreateComponent
         },
         {
             name: 'articles.report',
-            path: 'articles/generate-reports'
+            path: 'articulos/generar-reporte',
+            component: ReportComponent
         },
         {
             name: 'category.index',
-            path: '/home/categories',
+            path: '/inicio/categorias',
             component: CategoryListComponent
         },
         {
             name: 'category.create',
-            path: '/home/nueva-categoria',
+            path: '/inicio/nueva-categoria',
             component: CategoryCreateComponent
         }
     ]

@@ -99,7 +99,7 @@
         })
             .then(response => {
               this.$router.push({name: 'home'})
-              this.$root.$emit('article-created', response.data.data)
+              this.$root.$emit('article-created')
             })
             .catch(function (error) {
               if (error.response.data.code === 404) {

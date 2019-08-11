@@ -1,6 +1,6 @@
 <template>
     <div class="row justify-content-center">
-        <div class="col-md-8 mt-2 mb-2">
+        <div class="col-md-8 my-2 p-1">
             <div class="card">
                 <div class="card-header text-center">
                     <h4>Nueva Categoria</h4>
@@ -20,7 +20,6 @@
                                 </label>
                             </div>
 
-                            <router-link :to="{ name: 'article.index'}" class="btn btn-danger">Cancelar</router-link>
                             <button class="btn btn-success" @click="saveCategory(categoryToCreate)">Crear</button>
 
                         </div>

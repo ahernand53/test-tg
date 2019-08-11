@@ -23,7 +23,7 @@
                         <td>{{ category.created_at }}</td>
                         <td>{{ category.updated_at }}</td>
                         <td>
-                            <button class="btn btn-warning btn-sm btn-block" @click="editModal(category)">📝</button>
+                            <button class="btn btn-warning btn-sm btn-block" @click="editModal(category)">👁</button>
                         </td>
                     </tr>
                 </tbody>

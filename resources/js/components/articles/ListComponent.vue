@@ -1,8 +1,8 @@
 <template>
 
-    <div class="m-2">
-        <v-client-table class="shadow" :data="data" :columns="columns" :options="options">
-            <button slot="options" slot-scope="props" class="btn btn-warning btn-sm mx-auto btn-block" data-toggle="modal" data-target="#edit" @click="modalEdit(props.row)">📝</button>
+    <div>
+        <v-client-table class="shadow p-3" :data="data" :columns="columns" :options="options">
+            <button slot="options" slot-scope="props" class="btn btn-warning btn-sm mx-auto btn-block" data-toggle="modal" data-target="#edit" @click="modalEdit(props.row)">👁</button>
 
             <router-link slot="beforeFilter" class="btn btn-primary m-1 btn-block" :to="{name: 'article.create'}">Nuevo Articulo</router-link>
         </v-client-table>
