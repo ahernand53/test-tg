@@ -22,9 +22,14 @@ Vue.use(VueAxios, axios)
 Vue.use(uuid)
 
 // Components
-import ListComponent from './components/articles/ListComponent.vue'
-import CreateComponent from "./components/articles/CreateComponent";
+import ArticleListComponent from './components/articles/ListComponent.vue'
+import ArticleCreateComponent from "./components/articles/CreateComponent.vue";
+
+import CategoryListComponent from './components/categories/ListComponent.vue'
+import CategoryCreateComponent from './components/categories/CreateComponent.vue'
+
 import HomeComponent from "./components/HomeComponent";
+
 
 const router = new VueRouter({
     mode: 'history',
@@ -32,16 +37,26 @@ const router = new VueRouter({
         {
             name: 'home',
             path: '/home',
-            component: ListComponent
+            component: ArticleListComponent
         },
         {
             name: 'article.create',
             path: '/home/nuevo-articulo',
-            component: CreateComponent
+            component: ArticleCreateComponent
         },
         {
             name: 'articles.report',
             path: 'articles/generate-reports'
+        },
+        {
+            name: 'category.index',
+            path: '/home/categories',
+            component: CategoryListComponent
+        },
+        {
+            name: 'category.create',
+            path: '/home/nueva-categoria',
+            component: CategoryCreateComponent
         }
     ]
 })

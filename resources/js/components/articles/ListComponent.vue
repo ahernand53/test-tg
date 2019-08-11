@@ -1,8 +1,8 @@
 <template>
 
-    <div>
+    <div class="m-2">
         <v-client-table :data="data" :columns="columns" :options="options">
-            <button slot="buttons" slot-scope="props" class="btn btn-outline-warning btn-sm ml-2" data-toggle="modal" data-target="#edit" @click="modalEdit(props.row)">📝</button>
+            <button slot="botones" slot-scope="props" class="btn btn-warning btn-sm ml-2" data-toggle="modal" data-target="#edit" @click="modalEdit(props.row)">📝</button>
 
             <router-link slot="prependBody" class="btn btn-primary m-1" :to="{name: 'article.create'}">Nuevo Articulo</router-link>
         </v-client-table>
@@ -86,7 +86,7 @@
             'name',
             'quantity',
             'category.name',
-            'buttons'
+            'botones'
         ],
         options: {
           headings: {

@@ -10,7 +10,8 @@
                 <div class="card">
                     <div class="card-header">
                         <ol class="breadcrumb">
-                            <li><router-link :to="{ name: 'home'}">Home</router-link></li>
+                            <li class="m-2"><router-link :to="{ name: 'home'}">Articulos</router-link></li>
+                            <li class="m-2"><router-link :to="{ name: 'category.index'}">Categorias</router-link></li>
                         </ol>
                     </div>
 
