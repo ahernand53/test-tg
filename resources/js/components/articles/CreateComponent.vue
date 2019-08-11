@@ -15,13 +15,13 @@
 
                             <div class="form-group">
                                 <label for="register_number">Numero de registro</label>
-                                <input disabled type="text" class="form-control" id="register_number" v-model="register_number">
-                                <button class="btn btn-primary btn-sm" @click="newRegisterNumber">Nuevo numero</button>
+                                <input disabled type="text" class="form-control shadow border-0" id="register_number" v-model="register_number">
+                                <button class="btn btn-primary btn-block btn-sm" @click="newRegisterNumber">Nuevo numero</button>
                             </div>
 
                             <div class="form-group">
                                 <label for="name">Nombre del articulo</label>
-                                <input required type="text" class="form-control" id="name" v-model="name">
+                                <input required type="text" class="form-control shadow border-0" id="name" v-model="name">
                                 <label v-if="errors.name.has" class="text-danger">
                                     {{ errors.name.message }}
                                 </label>
@@ -29,7 +29,7 @@
 
                             <div class="form-group">
                                 <label for="quantity">Cantidad</label>
-                                <input required type="number" class="form-control" id="quantity" v-model="quantity">
+                                <input required type="number" class="form-control shadow border-0" id="quantity" v-model="quantity">
                                 <label v-if="errors.quantity.has" class="text-danger">
                                     {{ errors.quantity.message }}
                                 </label>
@@ -37,7 +37,7 @@
 
                             <div class="form-group">
                                 <label for="category">Categoria</label>
-                                <select required name="category" id="category" v-model="category">
+                                <select class="form-control shadow border-0" required name="category" id="category" v-model="category">
                                     <option v-for="(value, key) in categories" :value="value.id" :key="key">{{ value.name }}</option>
                                 </select>
                                 <label v-if="errors.category.has" class="text-danger">
@@ -45,8 +45,7 @@
                                 </label>
                             </div>
 
-                            <router-link :to="{ name: 'home'}" class="btn btn-danger">Cancelar</router-link>
-                            <button class="btn btn-success" @click="saveArticle">Crear</button>
+                            <button class="btn btn-primary btn-block" @click="saveArticle">Crear</button>
 
                         </div>
 

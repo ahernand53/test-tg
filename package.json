@@ -11,6 +11,7 @@
     },
     "devDependencies": {
         "@estudioliver/vue-uuid-v4": "^1.0.0",
+        "animate.css": "^3.7.2",
         "axios": "^0.18",
         "bootstrap": "^4.1.0",
         "cross-env": "^5.1",

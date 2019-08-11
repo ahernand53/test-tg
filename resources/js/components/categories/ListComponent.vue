@@ -1,27 +1,29 @@
 <template>
 
-    <div class="row justify-content-center">
+    <div class="row justify-content-center p-2 border-0">
 
-        <div class="col-lg-8">
+        <div class="col-lg-12">
 
-            <router-link :to="{ name: 'category.create'}" class="btn btn-primary m-2">➕Nueva Categoria</router-link>
+            <router-link :to="{ name: 'category.create'}" class="btn btn-primary btn-block">Nueva Categoria</router-link>
 
-            <table class="table">
+            <table class="table p-4 my-2 shadow">
 
                 <thead>
-                <tr>
-                    <th>nombre</th>
+                <tr class="text-center">
+                    <th>Nombre</th>
                     <th>Fecha de creacion</th>
-                    <th>botones</th>
+                    <th>Ultima actualizacion</th>
+                    <th>Opciones</th>
                 </tr>
                 </thead>
 
                 <tbody>
-                    <tr v-for="category in categories" :key="category.id">
+                    <tr class="text-center" v-for="category in categories" :key="category.id">
                         <td>{{ category.name }}</td>
                         <td>{{ category.created_at }}</td>
+                        <td>{{ category.updated_at }}</td>
                         <td>
-                            <button class="btn btn-warning" @click="editModal(category)">📝</button>
+                            <button class="btn btn-warning btn-sm btn-block" @click="editModal(category)">📝</button>
                         </td>
                     </tr>
                 </tbody>
@@ -41,7 +43,7 @@
 
                             <div class="form-group">
                                 <label for="name">Nombre de la categoria</label>
-                                <input required type="text" class="form-control" id="name" v-model="categoryToUpdate.name">
+                                <input required type="text" class="form-control shadow border-0" id="name" v-model="categoryToUpdate.name">
                                 <label v-if="errors.name.has" class="text-danger">
                                     {{ errors.name.message }}
                                 </label>

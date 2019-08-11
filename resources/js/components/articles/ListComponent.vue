@@ -1,10 +1,10 @@
 <template>
 
     <div class="m-2">
-        <v-client-table :data="data" :columns="columns" :options="options">
-            <button slot="botones" slot-scope="props" class="btn btn-warning btn-sm ml-2" data-toggle="modal" data-target="#edit" @click="modalEdit(props.row)">📝</button>
+        <v-client-table class="shadow" :data="data" :columns="columns" :options="options">
+            <button slot="options" slot-scope="props" class="btn btn-warning btn-sm mx-auto btn-block" data-toggle="modal" data-target="#edit" @click="modalEdit(props.row)">📝</button>
 
-            <router-link slot="prependBody" class="btn btn-primary m-1" :to="{name: 'article.create'}">Nuevo Articulo</router-link>
+            <router-link slot="beforeFilter" class="btn btn-primary m-1 btn-block" :to="{name: 'article.create'}">Nuevo Articulo</router-link>
         </v-client-table>
 
         <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-hidden="true">
@@ -20,12 +20,12 @@
 
                         <div class="form-group">
                             <label for="register_number">Numero de registro</label>
-                            <input disabled type="text" class="form-control" id="register_number" v-model="articleToUpdate.register_number">
+                            <input disabled type="text" class="form-control shadow border-0" id="register_number" v-model="articleToUpdate.register_number">
                         </div>
 
                         <div class="form-group">
                             <label for="name">Nombre del articulo</label>
-                            <input required type="text" class="form-control" id="name" v-model="articleToUpdate.name">
+                            <input required type="text" class="form-control shadow border-0" id="name" v-model="articleToUpdate.name">
                             <label v-if="errors.name.has" class="text-danger">
                                 {{ errors.name.message }}
                             </label>
@@ -33,7 +33,7 @@
 
                         <div class="form-group">
                             <label for="quantity">Cantidad</label>
-                            <input required type="number" class="form-control" id="quantity" v-model="articleToUpdate.quantity">
+                            <input required type="number" class="form-control shadow border-0" id="quantity" v-model="articleToUpdate.quantity">
                             <label v-if="errors.quantity.has" class="text-danger">
                                 {{ errors.quantity.message }}
                             </label>
@@ -41,7 +41,7 @@
 
                         <div class="form-group">
                             <label for="category">Categoria</label>
-                            <select required name="category" id="category" v-model="articleToUpdate.category_id">
+                            <select class="form-control shadow border-0" required name="category" id="category" v-model="articleToUpdate.category_id">
                                 <option v-for="(value, key) in categories" :value="value.id" :key="key">{{ value.name }}</option>
                             </select>
                             <label v-if="errors.category.has" class="text-danger">
@@ -51,8 +51,7 @@
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-primary"  @click="updateArticle(articleToUpdate, articleToUpdate.id)">Actualizar</button>
+                        <button type="button" class="btn btn-primary btn-block"  @click="updateArticle(articleToUpdate, articleToUpdate.id)">Actualizar</button>
                     </div>
                 </div>
             </div>
@@ -86,14 +85,15 @@
             'name',
             'quantity',
             'category.name',
-            'botones'
+            'options'
         ],
         options: {
           headings: {
             register_number:    'Numero de registro',
             name:               'Nombre',
             quantity:           'Cantidad',
-            'category.name':    'Categoria'
+            'category.name':    'Categoria',
+            options:            'opciones'
           },
           sortable: ['name', 'register_number', 'quantity'],
           filterable: ['register_number', 'name', 'category.name']

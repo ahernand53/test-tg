@@ -8,15 +8,10 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">
-                        <ol class="breadcrumb">
-                            <li class="m-2"><router-link :to="{ name: 'home'}">Articulos</router-link></li>
-                            <li class="m-2"><router-link :to="{ name: 'category.index'}">Categorias</router-link></li>
-                        </ol>
-                    </div>
-
                     <div class="card-content">
-                        <router-view></router-view>
+                        <transition name="router-anim" enter-active-class="animated fadeInLeftBig" leave-active-class="animated fadeOutRightBig">
+                            <router-view></router-view>
+                        </transition>
                     </div>
                 </div>
             </div>

@@ -3,7 +3,7 @@
         <div class="col-md-8 mt-2 mb-2">
             <div class="card">
                 <div class="card-header text-center">
-                    <h4>Nuevo Articulo</h4>
+                    <h4>Nueva Categoria</h4>
                 </div>
 
                 <div class="card-content">
@@ -13,8 +13,8 @@
                         <div class="col-8">
 
                             <div class="form-group">
-                                <label for="name">Nombre del articulo</label>
-                                <input required type="text" class="form-control" id="name" v-model="categoryToCreate.name">
+                                <label for="name">Nombre de la categoria</label>
+                                <input required type="text" class="form-control shadow border-0" id="name" v-model="categoryToCreate.name">
                                 <label v-if="errors.name.has" class="text-danger">
                                     {{ errors.name.message }}
                                 </label>
